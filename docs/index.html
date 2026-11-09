@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>書本封面顏色預覽</title>
+  <script type="module" src="https://cdn.jsdelivr.net/npm/@google/model-viewer@3.5.0/dist/model-viewer.min.js"></script>
+  <link rel="stylesheet" href="customer-preview.css">
+  <script src="customer-preview.js" defer></script>
+</head>
+<body>
+  <main class="showroom">
+    <header class="intro">
+      <p class="eyebrow">書本 3D 預覽</p>
+      <h1>更換封面顏色</h1>
+      <p>選擇皮革顏色，拖曳書本查看不同角度；使用滾輪或雙指縮放。</p>
+    </header>
+    <section class="stage" aria-label="書本模型與皮革顏色選擇">
+      <model-viewer
+        id="book-model"
+        src="assets/models/book.glb"
+        alt="可旋轉的精裝書 3D 模型，封面皮革顏色可切換"
+        camera-controls
+        touch-action="pan-y"
+        interaction-prompt="none"
+        camera-orbit="35deg 55deg auto"
+        min-camera-orbit="auto 10deg 65%"
+        max-camera-orbit="auto 170deg 250%"
+        min-field-of-view="20deg"
+        max-field-of-view="60deg"
+        shadow-intensity="0.7">
+      </model-viewer>
+      <div class="color-panel">
+        <h2>封面皮革顏色</h2>
+        <div class="swatches" role="group" aria-label="選擇封面皮革顏色">
+          <button type="button" class="swatch" data-color="original" aria-pressed="true" disabled>
+            <span class="swatch-chip" style="--swatch-color: #d8823a" aria-hidden="true"></span>
+            <span>黃色</span>
+          </button>
+          <button type="button" class="swatch" data-color="black" data-hex="#2c2e33" aria-pressed="false" disabled>
+            <span class="swatch-chip" style="--swatch-color: #2c2e33" aria-hidden="true"></span>
+            <span>黑色</span>
+          </button>
+          <button type="button" class="swatch" data-color="rose" data-hex="#60131b" aria-pressed="false" disabled>
+            <span class="swatch-chip" style="--swatch-color: #60131b" aria-hidden="true"></span>
+            <span>紅色</span>
+          </button>
+          <button type="button" class="swatch" data-color="blue" data-hex="#1d274f" aria-pressed="false" disabled>
+            <span class="swatch-chip" style="--swatch-color: #1d274f" aria-hidden="true"></span>
+            <span>藍色</span>
+          </button>
+          <button type="button" class="swatch" data-color="green" data-hex="#003300" aria-pressed="false" disabled>
+            <span class="swatch-chip" style="--swatch-color: #003300" aria-hidden="true"></span>
+            <span>綠色</span>
+          </button>
+        </div>
+        <p id="color-status" role="status" aria-live="polite">模型載入中…</p>
+      </div>
+    </section>
+  </main>
+</body>
+</html>
